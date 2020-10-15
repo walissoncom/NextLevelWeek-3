@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { getRepository } from "typeorm";
-import Orphanage from "./models/Orphanage";
+import OrphanagesController from "./controllers/OrphanagesController";
 
 /* SUMMARY */
 // Route = The whole code block
@@ -26,33 +25,12 @@ import Orphanage from "./models/Orphanage";
 
 const routes = Router();
 
-routes.post("/orphanages", async (request, response) => {
-  const {
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends
-  } = request.body;
+// MVC
 
-  const orphanagesRepository = getRepository(Orphanage);
+// Model
+// View
+// Controller
 
-  const orphanage = orphanagesRepository.create({
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends
-  });
-
-  await orphanagesRepository.save(orphanage);
-
-  // 201 is the creation code (HTTP Request)
-  return response.status(201).json(orphanage);
-});
+routes.post("/orphanages", OrphanagesController.create);
 
 export default routes;
