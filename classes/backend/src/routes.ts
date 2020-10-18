@@ -1,4 +1,7 @@
 import { Router } from "express";
+import multer from "multer";
+
+import uploadConfig from "./config/upload";
 import OrphanagesController from "./controllers/OrphanagesController";
 
 /* SUMMARY */
@@ -24,6 +27,7 @@ import OrphanagesController from "./controllers/OrphanagesController";
 // console.log(request.body);
 
 const routes = Router();
+const upload = multer(uploadConfig);
 
 // MVC
 
@@ -33,6 +37,6 @@ const routes = Router();
 
 routes.get("/orphanages", OrphanagesController.index);
 routes.get("/orphanages/:id", OrphanagesController.show);
-routes.post("/orphanages", OrphanagesController.create);
+routes.post("/orphanages", upload.array("images"), OrphanagesController.create); // When creating a orphanage item, it also can upload images to it
 
 export default routes;
