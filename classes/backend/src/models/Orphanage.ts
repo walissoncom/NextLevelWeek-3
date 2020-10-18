@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn
+} from "typeorm";
+import Image from "./Image";
 
 @Entity("orphanages")
 export default class Orphanage {
@@ -25,4 +32,16 @@ export default class Orphanage {
 
   @Column()
   open_on_weekends: boolean;
+
+  // There's no @Column() because this is not a database column
+  // It's the relationship from one Orphanage to any Images
+  // The type is an array of images, because an orphanage has multiple images
+  // Cascade makes the images being registered or updated every time a orphanage item is created or updated, in cascade effect
+  @OneToMany(
+    () => Image,
+    image => image.orphanage,
+    { cascade: ["insert", "update"] }
+  )
+  @JoinColumn({ name: "orphanage_id" })
+  images: Image[];
 }
