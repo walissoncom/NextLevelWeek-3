@@ -31,6 +31,7 @@ const routes = Router();
 // View
 // Controller
 
+routes.get("/orphanages", OrphanagesController.index);
 routes.post("/orphanages", OrphanagesController.create);
 
 export default routes;

@@ -3,7 +3,7 @@ import { query } from "express";
 
 export class createOrphanages1602731406644 implements MigrationInterface {
   // The Up method will make the alterations in the database
-  // Create tabl, create feld, delete field
+  // Create table, create field, delete field
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
