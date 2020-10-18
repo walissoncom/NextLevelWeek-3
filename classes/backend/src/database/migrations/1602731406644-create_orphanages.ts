@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
-import { query } from "express";
 
 export class createOrphanages1602731406644 implements MigrationInterface {
   // The Up method will make the alterations in the database
