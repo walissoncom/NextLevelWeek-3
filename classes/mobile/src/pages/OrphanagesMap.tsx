@@ -74,7 +74,7 @@ export default function OrphanagesMap() {
 
       </MapView>
       <View style={styles.footer}>
-        <Text style={styles.footerText}>2 places found</Text>
+        <Text style={styles.footerText}>{orphanages.length} places found</Text>
         <RectButton
           style={styles.createOrphanageButton}
           onPress={handleNavigateToCreateOrphanage}>
