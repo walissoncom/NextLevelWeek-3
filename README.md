@@ -14,7 +14,7 @@ In this third edition of the event, the Happy Project engage developers to creat
 ![Image of Mobile](https://github.com/walissoncom/NextLevelWeek-3/blob/master/happy-mobile-create-demo.gif)
 
 
-## Mobile Verison - Create Item
+## Mobile Verison - Display Item
 
 ![Image of Mobile 2](https://github.com/walissoncom/NextLevelWeek-3/blob/master/happy-mobile-display-demo.gif)
 
